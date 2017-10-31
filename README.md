@@ -3,11 +3,11 @@ This repository an attempt to write a tool that can take metric paths of an appl
 
 ## How to Run
 
- - Add metric paths in the file `metrics` without the URL.
+ - Add metric paths in a file like `dis-metrics` without the URL.
  
  - Run:
 ```
-python rca.py <controller_url> <username@account_name> <password>
+python rca.py <controller_url> <username@account_name> <password> <metrics-paths-file>
 ```
 
 It will give pearsonr coeffiecient as output for all pairs. 
