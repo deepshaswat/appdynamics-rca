@@ -3,7 +3,7 @@ from scipy.stats.stats import pearsonr
 
 controller_url = sys.argv[1]
 query_path = "/controller/rest/applications/"
-application_name = "dis-perf-a"
+application_name = "dis-prod-a"
 time_range = 120
 rest_url = controller_url + query_path + application_name
 rollup_query = "&rollup=false"
@@ -12,7 +12,7 @@ json_query = "&output=json"
 user = sys.argv[2]
 password = sys.argv[3]
 
-f = open("metrics","r")
+f = open(sys.argv[4],"r")
 
 ##TODO: Understand difference between value and current - https://docs.appdynamics.com/display/PRO43/Metric+and+Snapshot+API
 class MetricValue:
@@ -44,13 +44,17 @@ class MetricValue:
 class Metric:
     metricList = []
     path = ""
+    name = ""
+    valueList=[]
 
-    def __init__(self, path, metricList):
+    def __init__(self, path, metricList, name):
         self.path = path
         self.metricList = metricList
+        self.name = name
+        self.valueList = self.getOneDValueArray()
 
-    def printMetricMetadata(self):
-        print self.path, len(self.metricList)
+    def getMetricName(self):
+        return str(name)
 
     def getOneDValueArray(self):
         valueList = []
@@ -67,12 +71,12 @@ for line in f:
     #print full_url
     r = requests.get(full_url, auth=(user, password))
     metric_data = json.loads(r.text)
-    metricList = Metric(metric_path, metric_data[0]['metricValues'])
-    allMetricValueLists.append(metricList.getOneDValueArray())
+    metricList = Metric(metric_path, metric_data[0]['metricValues'], metric_data[0]['metricName'])
+    allMetricValueLists.append(metricList)
 
-#print len(allMetricValueLists)
+print len(allMetricValueLists)
 
 allPairs = list(itertools.combinations(allMetricValueLists, 2))
 for pairs in allPairs:
-    print pearsonr(pairs[0], pairs[1])
+    print pairs[0].name,"AND",pairs[1].name, pearsonr(pairs[0].valueList, pairs[1].valueList)
 

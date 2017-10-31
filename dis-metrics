@@ -1,0 +1,5 @@
+/metric-data?metric-path=Application%20Infrastructure%20Performance%7CDis-Ingestion-Server%7CCustom%20Metrics%7CIngestion%7CRequests%7CAuthPassed%7CAvg%20Upload%20Delay%7Cpaid55&time-range-type=BEFORE_NOW&duration-in-mins=
+/metric-data?metric-path=Application%20Infrastructure%20Performance%7CDis-Ingestion-Server%7CCustom%20Metrics%7CIngestion%7CRequests%7CAuthPassed%7CPackets%20Uploaded%7Cpaid55&time-range-type=BEFORE_NOW&duration-in-mins=
+/metric-data?metric-path=Application%20Infrastructure%20Performance%7CDis-Blitz-Relay%7CCustom%20Metrics%7CRelay%7CPackets%20Published%7CBlitz%7Cpaid55&time-range-type=BEFORE_NOW&duration-in-mins=
+/metric-data?metric-path=Application%20Infrastructure%20Performance%7CDis-Metric-Processor%7CCustom%20Metrics%7CMetric%20Processor%7CZerofill%7CMetrics%7Cpaid55&time-range-type=BEFORE_NOW&duration-in-mins=
+/metric-data?metric-path=Application%20Infrastructure%20Performance%7CDis-Metric-Processor%7CCustom%20Metrics%7CMetric%20Processor%7CProcessed%20Metrics%20Count%7Cpaid55&time-range-type=BEFORE_NOW&duration-in-mins=
